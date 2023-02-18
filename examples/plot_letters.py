@@ -75,9 +75,9 @@ for ind, axes_row in zip(selected, axes):
     for i, (a, image, y_true, y_svm, y_chain) in enumerate(
             zip(axes_row, X_test[ind], y_test[ind], y_pred_svm, y_pred_chain)):
         a.matshow(image.reshape(16, 8), cmap=plt.cm.Greys)
-        a.text(0, 3, abc[y_true], color="#00AA00", size=25)
-        a.text(0, 14, abc[y_svm], color="#5555FF", size=25)
-        a.text(5, 14, abc[y_chain], color="#FF5555", size=25)
+        a.text(0, 3, abc[y_true], color="#00FF00", size=25)
+        a.text(0, 14, abc[y_svm], color="#0000FF", size=25)
+        a.text(5, 14, abc[y_chain], color="#FF0000", size=25)
         a.set_xticks(())
         a.set_yticks(())
     for ii in range(i + 1, max_word_len):
@@ -86,6 +86,6 @@ for ind, axes_row in zip(selected, axes):
 plt.matshow(ssvm.w[26 * 8 * 16:].reshape(26, 26))
 plt.colorbar()
 plt.title("Transition parameters of the chain CRF.")
-plt.xticks(np.arange(25), abc)
-plt.yticks(np.arange(25), abc)
+plt.xticks(np.arange(26), abc)
+plt.yticks(np.arange(26), abc)
 plt.show()

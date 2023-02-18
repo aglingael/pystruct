@@ -8,3 +8,5 @@ doc/generated
 doc/auto_examples
 build/
 *.egg-info
+.idea/
+src/utils.c

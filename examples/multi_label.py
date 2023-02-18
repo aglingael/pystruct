@@ -24,7 +24,7 @@ import numpy as np
 from scipy import sparse
 
 from sklearn.metrics import hamming_loss
-from sklearn.datasets import fetch_mldata
+from sklearn.datasets import fetch_openml
 from sklearn.metrics import mutual_info_score
 from scipy.sparse.csgraph import minimum_spanning_tree
 
@@ -50,7 +50,7 @@ dataset = "scene"
 # dataset = "yeast"
 
 if dataset == "yeast":
-    yeast = fetch_mldata("yeast")
+    yeast = fetch_openml("yeast")
 
     X = yeast.data
     X = np.hstack([X, np.ones((X.shape[0], 1))])

@@ -14,7 +14,8 @@ from sklearn.datasets import load_iris
 try:
     from sklearn.model_selection import train_test_split
 except ImportError:
-    from sklearn.cross_validation import train_test_split
+    from sklearn.model_selection import train_test_split
+    # from sklearn.cross_validation import train_test_split
 
 from pystruct.models import GraphCRF
 from pystruct.learners import NSlackSSVM
@@ -24,7 +25,7 @@ X, y = iris.data, iris.target
 
 # make each example into a tuple of a single feature vector and an empty edge
 # list
-X_ = [(np.atleast_2d(x), np.empty((0, 2), dtype=np.int)) for x in X]
+X_ = [(np.atleast_2d(x), np.empty((0, 2)).astype(int)) for x in X]
 Y = y.reshape(-1, 1)
 
 X_train, X_test, y_train, y_test = train_test_split(X_, Y)
